@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom";
+
 const Sidebar = () => {
   return (
-    <>
-      <aside className="flex flex-col">
+    <div className="flex w-60 shrink-0 flex-col ">
+      <Link to={"/"}>
         <div>Home</div>
-        <div>Shorts</div>
-        <div>Subscription</div>
-        <div>Explore</div>
-      </aside>
-    </>
+      </Link>
+      <div>Shorts</div>
+      <div>Subscription</div>
+      <div>Explore</div>
+    </div>
   );
 };
 
