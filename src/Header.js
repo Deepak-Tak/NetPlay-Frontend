@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AUTOSUGGESION_API } from "./utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { cacheResults } from "./utils/searchSlice";
@@ -9,6 +9,7 @@ const Header = ({ switchSidebar }) => {
   const [searchResult, setSearchResult] = useState([]);
   const [displaySearchBox, setDisplaySearchBox] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cacheData = useSelector((store) => store.search);
   useEffect(() => {
     if (searchQuery in cacheData) {
@@ -58,23 +59,24 @@ const Header = ({ switchSidebar }) => {
             setSearchQuery(e.target.value);
           }}
         />
-        <button className="border-[#c6c6c6] bg-[#f8f8f8] w-16 h-7 border-[1.3px] rounded-r-3xl">
-          🔍
-        </button>
-        {displaySearchBox ? (
-          searchResult.length ? (
-            <ul className="absolute bg-white  w-80 shadow-lg  border rounded-md">
-              {searchResult.map((item) => (
-                <li
-                  key={item}
-                  className="p-1 cursor-pointer hover:bg-slate-400"
-                >
-                  🔍 {item}
-                </li>
-              ))}
-            </ul>
-          ) : null
-        ) : null}
+        <Link to={"/results?search_query=" + searchQuery}>
+          <button className="border-[#c6c6c6] bg-[#f8f8f8] w-16 h-7 border-[1.3px] rounded-r-3xl">
+            🔍
+          </button>
+        </Link>
+        {displaySearchBox && searchResult.length > 0 && (
+          <ul className="absolute bg-white w-80 shadow-lg border rounded-md">
+            {searchResult.map((item) => (
+              <li
+                key={item}
+                className="p-1 cursor-pointer hover:bg-slate-400"
+                onMouseDown={() => navigate("/results?search_query=" + item)}
+              >
+                {item}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
       <div className="w-8">
         <img alt="userlogo" src="/userlogo.png"></img>
