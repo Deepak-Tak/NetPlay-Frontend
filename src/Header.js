@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AUTOSUGGESION_API } from "./utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { cacheResults } from "./utils/searchSlice";
+import Profile from "./profile/Profile";
 
 const Header = ({ switchSidebar }) => {
   const [searchQuery, setSearchQuery] = useState(" ");
@@ -10,6 +11,7 @@ const Header = ({ switchSidebar }) => {
   const [displaySearchBox, setDisplaySearchBox] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [displayProfile, setDisplayProfile] = useState(false);
   const cacheData = useSelector((store) => store.search);
   useEffect(() => {
     if (searchQuery in cacheData) {
@@ -32,7 +34,7 @@ const Header = ({ switchSidebar }) => {
 
   return (
     <header className="flex flex-row justify-between sticky bg-white top-0 p-4 items-center shadow-md">
-      <div className=" flex justify-between items-center">
+      <div className=" flex justify-between items-center flex-shrink-0">
         <img
           className="w-[26px] h-[18px] mr-4"
           alt="menuicon"
@@ -48,9 +50,9 @@ const Header = ({ switchSidebar }) => {
         </Link>
       </div>
 
-      <div className="relative">
+      <div className="relative flex flex-shrink min-w-0 ">
         <input
-          className="border-[#c6c6c6] w-80 p-2 h-7 border-r-0 border-[1.3px] rounded-l-3xl"
+          className="border-[#c6c6c6] min-w-0  p-2 h-7 border-r-0 border-[1.3px] rounded-l-3xl"
           type="text"
           value={searchQuery}
           onFocus={() => setDisplaySearchBox(true)}
@@ -60,12 +62,12 @@ const Header = ({ switchSidebar }) => {
           }}
         />
         <Link to={"/results?search_query=" + searchQuery}>
-          <button className="border-[#c6c6c6] bg-[#f8f8f8] w-16 h-7 border-[1.3px] rounded-r-3xl">
+          <button className="border-[#c6c6c6] bg-slate-200  w-16 h-7 border-l-0 border-[1.3px] rounded-r-3xl">
             🔍
           </button>
         </Link>
         {displaySearchBox && searchResult.length > 0 && (
-          <ul className="absolute bg-white w-80 shadow-lg border rounded-md">
+          <ul className=" absolute bg-white shrink w-80 shadow-lg border rounded-md">
             {searchResult.map((item) => (
               <li
                 key={item}
@@ -78,8 +80,13 @@ const Header = ({ switchSidebar }) => {
           </ul>
         )}
       </div>
-      <div className="w-8">
-        <img alt="userlogo" src="/userlogo.png"></img>
+      <div className="w-8 relative flex-shrink-0">
+        <img
+          alt="userlogo"
+          src="/userlogo.png"
+          onClick={() => setDisplayProfile(!displayProfile)}
+        ></img>
+        {displayProfile ? <Profile /> : null}
       </div>
     </header>
   );

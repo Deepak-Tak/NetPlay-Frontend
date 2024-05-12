@@ -6,15 +6,12 @@ const VideoCard = ({ videoDetails }) => {
     const currentDate = new Date();
     const givenDate = new Date(dateString);
 
-    // Calculate the difference in milliseconds
     const differenceMs = currentDate - givenDate;
 
-    // Calculate the difference in days, hours, and minutes
     const differenceDays = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
     const differenceHours = Math.floor(differenceMs / (1000 * 60 * 60));
     const differenceMinutes = Math.floor(differenceMs / (1000 * 60));
 
-    // Determine the appropriate unit to display
     let result;
     if (differenceDays > 0) {
       result = differenceDays + " days ago";

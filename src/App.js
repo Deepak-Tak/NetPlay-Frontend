@@ -8,6 +8,7 @@ import WatchPage from "./WatchPage";
 import { Provider } from "react-redux";
 import appStore from "./utils/store";
 import SearchResultContainer from "./SearchResultContainer";
+import Playlist from "./Playlist";
 
 const App = () => {
   const [sidebarDisplay, setSidebarDisplay] = useState(true);
@@ -32,6 +33,7 @@ const AppRouter = createBrowserRouter([
       { path: "/", element: <Body /> },
       { path: "watch", element: <WatchPage /> },
       { path: "results", element: <SearchResultContainer /> },
+      { path: "playlist", element: <Playlist /> },
     ],
   },
 ]);
