@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { AUTOSUGGESION_API } from "./utils/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { cacheResults } from "./utils/searchSlice";
 import Profile from "./profile/Profile";
+import SearchSuggestion from "./SearchSuggestion";
 
 const Header = ({ switchSidebar }) => {
   const [searchQuery, setSearchQuery] = useState(" ");
   const [searchResult, setSearchResult] = useState([]);
   const [displaySearchBox, setDisplaySearchBox] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const [displayProfile, setDisplayProfile] = useState(false);
   const cacheData = useSelector((store) => store.search);
   useEffect(() => {
@@ -33,7 +34,7 @@ const Header = ({ switchSidebar }) => {
   };
 
   return (
-    <header className="flex flex-row justify-between sticky bg-white top-0 p-4 items-center shadow-md">
+    <header className="flex flex-row justify-between sticky top-0 bg-white  p-4 items-center shadow-md">
       <div className=" flex justify-between items-center flex-shrink-0">
         <img
           className="w-[26px] h-[18px] mr-4"
@@ -50,34 +51,26 @@ const Header = ({ switchSidebar }) => {
         </Link>
       </div>
 
-      <div className="relative flex flex-shrink min-w-0 ">
-        <input
-          className="border-[#c6c6c6] min-w-0  p-2 h-7 border-r-0 border-[1.3px] rounded-l-3xl"
-          type="text"
-          value={searchQuery}
-          onFocus={() => setDisplaySearchBox(true)}
-          onBlur={() => setDisplaySearchBox(false)}
-          onChange={(e) => {
-            setSearchQuery(e.target.value);
-          }}
-        />
-        <Link to={"/results?search_query=" + searchQuery}>
-          <button className="border-[#c6c6c6] bg-slate-200  w-16 h-7 border-l-0 border-[1.3px] rounded-r-3xl">
-            🔍
-          </button>
-        </Link>
+      <div className=" min-w-0  flex-shrink relative  mx-1">
+        <div className=" flex min-w-0">
+          <input
+            className="border-[#c6c6c6] min-w-0 shrink   p-2 h-7 border-r-0 border-[1.3px] rounded-l-3xl"
+            type="text"
+            value={searchQuery}
+            onFocus={() => setDisplaySearchBox(true)}
+            onBlur={() => setDisplaySearchBox(false)}
+            onChange={(e) => {
+              setSearchQuery(e.target.value);
+            }}
+          />
+          <Link to={"/results?search_query=" + searchQuery}>
+            <button className="border-[#c6c6c6] bg-slate-200  w-16 h-7 border-l-0 border-[1.3px] rounded-r-3xl">
+              🔍
+            </button>
+          </Link>
+        </div>
         {displaySearchBox && searchResult.length > 0 && (
-          <ul className=" absolute bg-white shrink w-80 shadow-lg border rounded-md">
-            {searchResult.map((item) => (
-              <li
-                key={item}
-                className="p-1 cursor-pointer hover:bg-slate-400"
-                onMouseDown={() => navigate("/results?search_query=" + item)}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
+          <SearchSuggestion searchResult={searchResult} />
         )}
       </div>
       <div className="w-8 relative flex-shrink-0">

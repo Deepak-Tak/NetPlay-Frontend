@@ -23,20 +23,42 @@ const VideoCard = ({ videoDetails }) => {
 
     return result;
   }
+  function convertViewCount(viewCount) {
+    if (viewCount < 1000) {
+      return viewCount.toString();
+    } else if (viewCount < 1000000) {
+      return (viewCount / 1000).toFixed(1) + "K";
+    } else if (viewCount < 1000000000) {
+      return (viewCount / 1000000).toFixed(1) + "M";
+    } else {
+      return (viewCount / 1000000000).toFixed(1) + "B";
+    }
+  }
   return (
-    <Link to={"/watch?v=" + videoDetails.id}>
-      <div className="w-[332px] h-[287px] cursor-pointer text-wrap">
-        <img
-          alt="videoCard"
-          className="rounded-xl"
-          src={thumbnails.medium.url}
-        />
-        <h4>{title}</h4>
-        <h6>{channelTitle}</h6>
-        <h6>{videoDetails.statistics.count}</h6>
-        <h6>{getDateDifference(publishedAt)}</h6>
+    <div className="p-4 hover:p-2 basis-[340px]  min-w-0 flex-shrink cursor-pointer">
+      <div>
+        <Link to={"/watch?v=" + videoDetails.id}>
+          <img
+            alt="videoCard"
+            className="rounded-xl"
+            src={thumbnails.medium.url}
+          />
+        </Link>
       </div>
-    </Link>
+      <div className="p-2">
+        <h4 className="text-sm break-words font-semibold">
+          {title.substring(0, 87) + "..."}
+        </h4>
+
+        <h6 className="text-sm ">{channelTitle}</h6>
+        <div className="flex">
+          <h6 className="text-sm">
+            {convertViewCount(videoDetails.statistics.viewCount)}
+          </h6>
+          <h6 className="text-sm ml-2 ">{getDateDifference(publishedAt)}</h6>
+        </div>
+      </div>
+    </div>
   );
 };
 export default VideoCard;
