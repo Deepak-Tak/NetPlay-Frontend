@@ -18,7 +18,7 @@ const App = () => {
       <Provider store={appStore}>
         <Header switchSidebar={switchSidebar} />
         <div className="flex">
-          {sidebarDisplay ? <Sidebar /> : null}
+          <Sidebar sidebarDisplay={sidebarDisplay} />
           <Outlet />
         </div>
       </Provider>

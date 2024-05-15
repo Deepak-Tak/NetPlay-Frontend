@@ -19,7 +19,7 @@ const SearchResultContainer = () => {
   }, [keyword]);
   if (!searchResultData) return <div>Loading</div>;
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-wrap justify-around">
       {searchResultData.map((item) => (
         <SearchResult data={item} />
       ))}

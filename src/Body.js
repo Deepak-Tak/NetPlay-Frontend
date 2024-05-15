@@ -15,7 +15,7 @@ const Body = () => {
   }, []);
 
   return (
-    <div className="flex flex-wrap justify-around">
+    <div className="flex flex-shrink min-w-0 flex-wrap mt-1 justify-around">
       {videoList
         ? videoList.map((item) => (
             <VideoCard key={item.id} videoDetails={item} />
