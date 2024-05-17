@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { VIDEO_LIST_BY_IDS } from "./utils/constants";
+import { VIDEO_LIST_BY_IDS } from "../utils/constants";
 import SearchResult from "./SearchResult";
 import { useSelector } from "react-redux";
 

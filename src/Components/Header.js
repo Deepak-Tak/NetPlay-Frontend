@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { AUTOSUGGESION_API } from "./utils/constants";
+import { AUTOSUGGESION_API } from "../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { cacheResults } from "./utils/searchSlice";
-import Profile from "./profile/Profile";
+import { cacheResults } from "../utils/searchSlice";
+import Profile from "../Profile/Profile";
 import SearchSuggestion from "./SearchSuggestion";
 
 const Header = ({ switchSidebar }) => {
   const [searchQuery, setSearchQuery] = useState(" ");
   const [searchResult, setSearchResult] = useState([]);
   const [displaySearchBox, setDisplaySearchBox] = useState(false);
+  const [displayProfile, setDisplayProfile] = useState(false);
   const dispatch = useDispatch();
 
-  const [displayProfile, setDisplayProfile] = useState(false);
   const cacheData = useSelector((store) => store.search);
   useEffect(() => {
     if (searchQuery in cacheData) {

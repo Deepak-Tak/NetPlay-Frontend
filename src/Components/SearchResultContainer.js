@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react";
-import { SEARCHDATA_API } from "./utils/constants";
+import { SEARCHDATA_API } from "../utils/constants";
 import SearchResult from "./SearchResult";
 import { useSearchParams } from "react-router-dom";
 
