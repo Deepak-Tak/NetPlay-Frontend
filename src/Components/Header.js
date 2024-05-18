@@ -7,10 +7,11 @@ import Profile from "../Profile/Profile";
 import SearchSuggestion from "./SearchSuggestion";
 
 const Header = ({ switchSidebar }) => {
-  const [searchQuery, setSearchQuery] = useState(" ");
-  const [searchResult, setSearchResult] = useState([]);
   const [displaySearchBox, setDisplaySearchBox] = useState(false);
   const [displayProfile, setDisplayProfile] = useState(false);
+  const [searchQuery, setSearchQuery] = useState(" ");
+  const [searchResult, setSearchResult] = useState([]);
+
   const dispatch = useDispatch();
 
   const cacheData = useSelector((store) => store.search);
