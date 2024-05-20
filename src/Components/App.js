@@ -1,27 +1,23 @@
-import { useState } from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import "../index.css";
 import Body from "./Body";
 import { Outlet, createBrowserRouter } from "react-router-dom";
 import WatchPage from "./WatchPage";
-import { Provider } from "react-redux";
-import appStore from "../utils/store";
+import { useSelector } from "react-redux";
 import SearchResultContainer from "./SearchResultContainer";
 import Playlist from "./Playlist";
+import Theater from "./Theater/Theater";
 
 const App = () => {
-  const [sidebarDisplay, setSidebarDisplay] = useState(true);
-  const switchSidebar = () => setSidebarDisplay(!sidebarDisplay);
+  const sidebarDisplay = useSelector((store) => store.sidebar[0]);
   return (
     <>
-      <Provider store={appStore}>
-        <Header switchSidebar={switchSidebar} />
-        <div className="flex">
-          <Sidebar sidebarDisplay={sidebarDisplay} />
-          <Outlet />
-        </div>
-      </Provider>
+      <Header />
+      <div className="flex">
+        {sidebarDisplay ? <Sidebar /> : null}
+        <Outlet />
+      </div>
     </>
   );
 };
@@ -34,6 +30,7 @@ const AppRouter = createBrowserRouter([
       { path: "watch", element: <WatchPage /> },
       { path: "results", element: <SearchResultContainer /> },
       { path: "playlist", element: <Playlist /> },
+      { path: "browse", element: <Theater /> },
     ],
   },
 ]);

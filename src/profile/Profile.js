@@ -6,7 +6,7 @@ import LogIn from "./LogIn";
 
 const Profile = () => {
   const [displaySignUp, setDisplaySignUp] = useState(false);
-  const loggedIn = useSelector((store) => store.loginSlice);
+  const loggedIn = useSelector((store) => store.login);
   if (loggedIn[0]) return <LogIn />;
   return (
     <div>
