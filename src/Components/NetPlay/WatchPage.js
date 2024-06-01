@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
-  const loggedIn = useSelector((store) => store.loginSlice);
+  const loggedIn = useSelector((store) => store.login);
   const handleClick = () => {
     if (loggedIn) {
       fetch("http://localhost:3000/playlist/add", {

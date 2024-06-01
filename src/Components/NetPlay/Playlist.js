@@ -5,8 +5,7 @@ import { useSelector } from "react-redux";
 
 const Playlist = () => {
   const [data, setData] = useState(null);
-  console.log(data);
-  const loggedIn = useSelector((store) => store.loginSlice);
+  const loggedIn = useSelector((store) => store.login);
 
   const myRef = useRef(null);
   useEffect(() => {
@@ -19,7 +18,6 @@ const Playlist = () => {
         }),
       })
         .then((data) => {
-          console.log(data.ok);
           if (data.ok) return data.json();
           else {
             throw new Error("invalid credentials");
