@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Profile from "../../Profile/Profile";
+import Profile from "../../profile/Profile";
 
 const HeaderRight = () => {
   const [displayProfile, setDisplayProfile] = useState(false);
