@@ -15,6 +15,7 @@ const Theater = () => {
   useEffect(() => {
     dispatch(theaterMode(false));
     return untoogle;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   if (Id === "1") return <GptSearch />;
   return (
