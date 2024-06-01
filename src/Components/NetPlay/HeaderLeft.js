@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { setToogle } from "../utils/sidebarSlice";
+import { setToogle } from "../../utils/sidebarSlice";
 import { Link } from "react-router-dom";
 
 const HeaderLeft = () => {

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { AUTOSUGGESION_API } from "../utils/constants";
-import { cacheResults } from "../utils/searchSlice";
+import { AUTOSUGGESION_API } from "../../utils/constants";
+import { cacheResults } from "../../utils/searchSlice";
 import SearchSuggestion from "./SearchSuggestion";
 import { Link } from "react-router-dom";
 
 const HeaderCenter = () => {
   const [displaySearchBox, setDisplaySearchBox] = useState(false);
-  const [searchQuery, setSearchQuery] = useState(" ");
+  const [searchQuery, setSearchQuery] = useState("");
   const [autosuggesion, setAutosuggesion] = useState([]);
   const dispatch = useDispatch();
 
@@ -34,9 +34,10 @@ const HeaderCenter = () => {
     <div className=" min-w-0  flex-shrink relative  mx-1">
       <div className=" flex min-w-0">
         <input
-          className="border-[#c6c6c6] min-w-0 shrink   p-2 h-7 border-r-0 border-[1.3px] rounded-l-3xl"
+          className="border-[#c6c6c6] min-w-0 shrink p-3 h-7 border-r-0 border-[1.3px] rounded-l-3xl"
           type="text"
           value={searchQuery}
+          placeholder="Search..."
           onFocus={() => setDisplaySearchBox(true)}
           onBlur={() => setDisplaySearchBox(false)}
           onChange={(e) => {

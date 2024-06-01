@@ -1,6 +1,6 @@
 import SearchResult from "./SearchResult";
 import { useSearchParams } from "react-router-dom";
-import { useFetchSearchVideoListQuery } from "../utils/bodySlice";
+import { useFetchSearchVideoListQuery } from "../../utils/bodySlice";
 
 const SearchResultContainer = () => {
   const [searchParams] = useSearchParams();
@@ -10,7 +10,7 @@ const SearchResultContainer = () => {
 
   if (!data) return <div>Loading</div>;
   return (
-    <div className="flex flex-wrap justify-around">
+    <div className="top-[68px] relative flex flex-wrap justify-around">
       {data.items.map((item) => (
         <SearchResult data={item} />
       ))}

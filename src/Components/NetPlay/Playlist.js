@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { VIDEO_LIST_BY_IDS } from "../utils/constants";
+import { VIDEO_LIST_BY_IDS } from "../../utils/constants";
 import SearchResult from "./SearchResult";
 import { useSelector } from "react-redux";
 
@@ -48,7 +48,7 @@ const Playlist = () => {
   }, [loggedIn]);
   if (data) {
     return (
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap top-[68px] relative">
         <div className="mt-4 font-normal text-xl">Playlist:</div>
 
         {data.items.map((item) => (

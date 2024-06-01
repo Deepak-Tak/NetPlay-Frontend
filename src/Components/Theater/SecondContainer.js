@@ -6,12 +6,14 @@ import {
   useFetchTopRatedQuery,
   useFetchUpComingQuery,
 } from "../../utils/categoryVideosApi";
+import Shimmer from "./Shimmer";
 
 const SecondContainer = () => {
   const nowPlaying = useFetchNowPlayingQuery();
   const popular = useFetchPopularQuery();
   const topRated = useFetchTopRatedQuery();
   const upComing = useFetchUpComingQuery();
+  if (nowPlaying.isLoading) return <Shimmer />;
   return (
     <div className="flex flex-col bg-black relative top-[100vh]">
       <div className="-mt-36">

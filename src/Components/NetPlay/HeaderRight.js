@@ -1,24 +1,24 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import Profile from "../Profile/Profile";
+import Profile from "../../Profile/Profile";
 
 const HeaderRight = () => {
   const [displayProfile, setDisplayProfile] = useState(false);
   const navigate = useNavigate();
-  const displaySidebar = useSelector((store) => store.sidebar[0]);
+  const theaterMode = useSelector((store) => store.sidebar[0]);
   return (
     <div className="relative flex flex-shrink-0">
       <div className="mr-4">
-        <label class="inline-flex items-center align-middle cursor-pointer">
+        <label className="inline-flex items-center align-middle cursor-pointer">
           <input
             type="checkbox"
             value=""
-            class="sr-only peer"
-            checked={!displaySidebar}
+            className="sr-only peer"
+            checked={!theaterMode}
             onChange={(e) => {
               if (e.target.checked) {
-                navigate("/browse");
+                navigate("/browse/0");
               } else {
                 navigate("/");
               }

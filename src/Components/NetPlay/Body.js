@@ -1,5 +1,5 @@
 import VideoCard from "./VideoCard";
-import { useFetchVideoListQuery } from "../utils/bodySlice";
+import { useFetchVideoListQuery } from "../../utils/bodySlice";
 
 const Body = () => {
   const { data } = useFetchVideoListQuery();

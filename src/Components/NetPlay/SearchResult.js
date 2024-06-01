@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { getDateDifference } from "../utils/functions";
+import { getDateDifference } from "../../utils/functions";
 const SearchResult = memo(({ data }) => {
   const { publishedAt, title, description, thumbnails } = data.snippet;
   const { videoId } = data.id;
