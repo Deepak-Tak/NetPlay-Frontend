@@ -6,11 +6,11 @@ const GptResults = ({ data }) => {
     <div className="flex flex-col bg-black">
       {data[0].map((item, index) =>
         data[1][index].results.length ? (
-          <div>
+          <div key={data[0][index]}>
             <h1 className="pl-4 text-2xl font-semibold py-3 text-white">
               {item}
             </h1>
-            <CategoryVideos key={data[index]} data={data[1][index]} />
+            <CategoryVideos data={data[1][index]} />
           </div>
         ) : null
       )}
