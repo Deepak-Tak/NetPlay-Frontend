@@ -10,7 +10,7 @@ const GptResults = ({ data }) => {
             <h1 className="pl-4 text-2xl font-semibold py-3 text-white">
               {item}
             </h1>
-            <CategoryVideos data={data[1][index].data} />
+            <CategoryVideos key={data[index]} data={data[1][index].data} />
           </div>
         ) : null
       )}

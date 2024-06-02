@@ -7,12 +7,11 @@ const SearchResultContainer = () => {
   const { data } = useFetchSearchVideoListQuery(
     searchParams.get("search_query")
   );
-
   if (!data) return <div>Loading</div>;
   return (
     <div className="top-[68px] relative flex flex-wrap justify-around">
       {data.items.map((item) => (
-        <SearchResult data={item} />
+        <SearchResult key={item.id.videoId} data={item} />
       ))}
     </div>
   );

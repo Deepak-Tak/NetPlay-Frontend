@@ -10,7 +10,6 @@ const Theater = () => {
   const dispatch = useDispatch();
   const untoogle = () => dispatch(theaterMode(true));
   const { Id } = useParams();
-  console.log(Id);
 
   useEffect(() => {
     dispatch(theaterMode(false));

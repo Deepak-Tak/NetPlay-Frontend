@@ -34,7 +34,6 @@ const HeaderRight = () => {
           src="/userlogo.png"
           className="w-8"
           onClick={(e) => {
-            console.log(e);
             setDisplayProfile(!displayProfile);
           }}
         ></img>

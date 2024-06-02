@@ -21,11 +21,12 @@ export const gptApi = createApi({
         const prompt = search;
         try {
           const result = await model.generateContent(prompt);
-          const response = result.response.text().split(",");
+          const response1 = await result.response.text();
+          const response = response1.split(",");
+
           if (response[0] === "ERROR")
             throw new Error("No Suggestions for your Promt, Try Again...");
           let arr = response.map((item) => fetchWithBQ(`?query=${item}`));
-
           let data = await Promise.all(arr);
           let errorCheck = data.filter((item) => !item.meta.response.ok);
           if (errorCheck.length) throw new Error("TMDB fetch error");
