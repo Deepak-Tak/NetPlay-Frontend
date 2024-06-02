@@ -16,7 +16,7 @@ export const gptApi = createApi({
   endpoints: (build) => ({
     gptTmdb: build.query({
       async queryFn({ value }, _1, _2, fetchWithBQ) {
-        const search = `you are a movie and webseries suggesting assistant, suggest 5 movies or webseries names with comma separated for the query : ${value} . for example - seetaram,ramlakhan,hanuman,rangeela,ramayan . if you don't find anything return simply "ERROR" prompt`;
+        const search = `you are a movie and webseries suggesting assistant, suggest atmost 5 movies or webseries names with comma separated for the query : ${value} . for example - seetaram,ramlakhan,hanuman,rangeela,ramayan . if you don't find anything return simply "ERROR" prompt`;
         const model = genAI.getGenerativeModel({ model: "gemini-pro" });
         const prompt = search;
         try {
