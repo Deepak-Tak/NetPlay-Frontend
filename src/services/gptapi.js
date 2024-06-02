@@ -27,12 +27,16 @@ export const gptApi = createApi({
           if (response[0] === "ERROR")
             throw new Error("No Suggestions for your Promt, Try Again...");
           let arr = response.map((item) => fetchWithBQ(`?query=${item}`));
-          let data = await Promise.all(arr);
-          let errorCheck = data.filter((item) => !item.meta.response.ok);
-          if (errorCheck.length) throw new Error("TMDB fetch error");
+          let results = await Promise.all(arr);
+
+          const data = results.map((result) => {
+            if (!result.meta.response.ok) throw new Error("TMDB fetch error");
+            return result.data;
+          });
+
           return { data: [response, data] };
         } catch (error) {
-          return { error: error };
+          return { error: error.message };
         }
       },
     }),
