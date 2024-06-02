@@ -5,7 +5,7 @@ import {
   useFetchPopularQuery,
   useFetchTopRatedQuery,
   useFetchUpComingQuery,
-} from "../../utils/categoryVideosApi";
+} from "../../services/categoryVideosApi";
 import Shimmer from "./Shimmer";
 
 const SecondContainer = () => {

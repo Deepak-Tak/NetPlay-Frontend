@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { TMDB_KEY } from "./constants";
+import { TMDB_KEY } from "../utils/constants";
 
 export const categoryVideosApi = createApi({
   reducerPath: "categoryVideoList",

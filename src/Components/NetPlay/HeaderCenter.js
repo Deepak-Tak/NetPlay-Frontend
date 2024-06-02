@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AUTOSUGGESION_API } from "../../utils/constants";
-import { cacheResults } from "../../utils/searchSlice";
+import { cacheResults } from "../../store/searchSlice";
 import SearchSuggestion from "./SearchSuggestion";
 import { Link } from "react-router-dom";
 

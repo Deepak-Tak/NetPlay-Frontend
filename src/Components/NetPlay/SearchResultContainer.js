@@ -1,6 +1,6 @@
 import SearchResult from "./SearchResult";
 import { useSearchParams } from "react-router-dom";
-import { useFetchSearchVideoListQuery } from "../../utils/bodySlice";
+import { useFetchSearchVideoListQuery } from "../../store/bodySlice";
 
 const SearchResultContainer = () => {
   const [searchParams] = useSearchParams();

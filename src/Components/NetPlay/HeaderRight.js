@@ -7,6 +7,7 @@ const HeaderRight = () => {
   const [displayProfile, setDisplayProfile] = useState(false);
   const navigate = useNavigate();
   const theaterMode = useSelector((store) => store.sidebar[0]);
+
   return (
     <div className="relative flex flex-shrink-0">
       <div className="mr-4">
@@ -27,13 +28,20 @@ const HeaderRight = () => {
           <div className="relative w-7 h-4 bg-gray-200 peer-focus:outline-none  dark:peer-focus:ring-red-600-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all dark:border-gray-600 peer-checked:bg-red-500"></div>
         </label>
       </div>
-      <img
-        alt="userlogo"
-        src="/userlogo.png"
-        className="w-8"
-        onClick={() => setDisplayProfile(!displayProfile)}
-      ></img>
-      {displayProfile ? <Profile /> : null}
+      <div onClick={(e) => e.stopPropagation()}>
+        <img
+          alt="userlogo"
+          src="/userlogo.png"
+          className="w-8"
+          onClick={(e) => {
+            console.log(e);
+            setDisplayProfile(!displayProfile);
+          }}
+        ></img>
+        {displayProfile ? (
+          <Profile handleOutsideClick={setDisplayProfile} />
+        ) : null}
+      </div>
     </div>
   );
 };

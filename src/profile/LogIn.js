@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import { loggedIn } from "../utils/loginSlice";
+import { loggedIn } from "../store/loginSlice";
 import { Link } from "react-router-dom";
 
 const LogIn = () => {

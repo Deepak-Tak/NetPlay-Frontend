@@ -2,10 +2,10 @@ import { configureStore } from "@reduxjs/toolkit";
 import searchReducer from "./searchSlice";
 import loggedInReducer from "./loginSlice";
 import { videoListApi } from "./bodySlice";
-import { categoryVideosApi } from "./categoryVideosApi";
+import { categoryVideosApi } from "../services/categoryVideosApi";
 import sidebarReducer from "./sidebarSlice";
 import gptReducer from "./gptSlice";
-import { gptApi } from "./gptapi";
+import { gptApi } from "../services/gptapi";
 
 const appStore = configureStore({
   reducer: {

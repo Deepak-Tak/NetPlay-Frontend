@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { KEY } from "./constants";
+import { KEY } from "../utils/constants";
 
 export const videoListApi = createApi({
   reducerPath: "videoList",
@@ -8,8 +8,8 @@ export const videoListApi = createApi({
   }),
   endpoints: (builder) => ({
     fetchVideoList: builder.query({
-      query: () =>
-        `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=50&key=${KEY}`,
+      query: (number) =>
+        `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&regionCode=IN&maxResults=${number}&key=${KEY}`,
     }),
     fetchSearchVideoList: builder.query({
       query: (keyword) =>

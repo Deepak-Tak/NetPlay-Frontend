@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { useLazyGptTmdbQuery } from "../../utils/gptapi";
+import { useLazyGptTmdbQuery } from "../../services/gptapi";
 import GptResults from "./GptResults";
 
 const Loading = () => {

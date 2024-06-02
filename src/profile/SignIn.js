@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { loggedIn } from "../utils/loginSlice";
+import { loggedIn } from "../store/loginSlice";
 
 const SignIn = ({ setDisplaySignUp }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });

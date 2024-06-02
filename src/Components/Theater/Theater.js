@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import MainContainer from "./MainContainer";
 import SecondContainer from "./SecondContainer";
 import { useDispatch } from "react-redux";
-import { theaterMode } from "../../utils/sidebarSlice";
+import { theaterMode } from "../../store/sidebarSlice";
 import { useParams } from "react-router-dom";
 import GptSearch from "./GptSearch";
 

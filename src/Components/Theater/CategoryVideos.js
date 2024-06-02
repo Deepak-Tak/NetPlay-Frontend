@@ -2,7 +2,7 @@ import React from "react";
 import { CDN_LINK } from "../../utils/constants";
 
 const CategoryVideos = ({ data }) => {
-  if (!data) return <div>Loading</div>;
+  if (!data) return null;
   return (
     <div className="flex overflow-x-scroll no-scrollbar">
       {data.results.map((item) =>

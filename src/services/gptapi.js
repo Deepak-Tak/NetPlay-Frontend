@@ -1,6 +1,6 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { GEMINIAI_KEY, TMDB_KEY } from "./constants";
+import { GEMINIAI_KEY, TMDB_KEY } from "../utils/constants";
 
 const genAI = new GoogleGenerativeAI(GEMINIAI_KEY);
 
