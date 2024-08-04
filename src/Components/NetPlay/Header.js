@@ -9,9 +9,8 @@ const Header = () => {
 
   return (
     <header
-      className={`flex flex-row justify-between fixed w-full top-0 ${
-        theaterMode ? "bg-white" : "bg-transparent bg-gradient-to-b from-black"
-      }  z-50  p-4 items-center shadow-md`}
+      className={`flex flex-row justify-between fixed w-full top-0 ${theaterMode ? "bg-white" : "bg-transparent bg-gradient-to-b from-black"
+        }  z-50  p-4 items-center shadow-md`}
     >
       <HeaderLeft />
       {theaterMode ? <HeaderCenter /> : <HeaderTheaterCenter />}
