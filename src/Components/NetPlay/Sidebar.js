@@ -5,16 +5,23 @@ import { Link } from "react-router-dom";
 const Sidebar = () => {
   const toogle = useSelector((store) => store.sidebar[1]);
   return (
-    <div className="flex  box-border pt-5 border-t-[64px] h-screen ml-1 align-middle  flex-col z-[1] shrink-0 overflow-y-scroll relative  w-auto bg-white max-[500px]:fixed max-[500px]:overflow-x-scroll max-[500px]:w-full max-[500px]:bottom-0   max-[500px]:border-t max-[500px]:border-b  max-[500px]:mt-0 max-[500px]:shadow-md max-[500px]:ml-0    ">
+    <div
+      className={`flex  box-border pt-5 border-t-[64px] h-screen ml-1 align-middle
+      flex-col z-[1] shrink-0 overflow-y-scroll relative  w-auto bg-white scrollbar-none
+      pr-[11px]
+      hover:pr-0
+        ${toogle ? " hover:scrollbar-thin" : " "}
+        
+        `}>
 
 
 
-      <div className="sticky  top-[68px] mx-2  max-[500px]:flex-row max-[500px]:flex max-[500px]:justify-around">
+      <div className="sticky mx-2">
 
-        <div className="border-b-2 pb-2">
+        <div className="border-b-2 pb-2 ">
           <Link className="max-[500px]:shrink-0" to={"/"}>
             <div className="flex p-3  justify-start hover:bg-[#f0f0f0] rounded-md">
-              <svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="m12 4.44 7 6.09V20h-4v-6H9v6H5v-9.47l7-6.09m0-1.32-8 6.96V21h6v-6h4v6h6V10.08l-8-6.96z"></path></svg>
+              <svg enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="m12 4.44 7 6.09V20h-4v-6H9v6H5v-9.47l7-6.09m0-1.32-8 6.96V21h6v-6h4v6h6V10.08l-8-6.96z"></path></svg>
               {toogle ? (
                 <div className="text-md max-[500px]:text-sm ml-3 pr-12 ">Home</div>
               ) : null}
@@ -27,7 +34,7 @@ const Sidebar = () => {
             ) : null}
           </div>
           <div className="flex p-3  max-[500px]:shrink-0 hover:bg-[#f0f0f0] justify-start rounded-md">
-            <svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="M10 18v-6l5 3-5 3zm7-15H7v1h10V3zm3 3H4v1h16V6zm2 3H2v12h20V9zM3 10h18v10H3V10z"></path></svg>
+            <svg enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="M10 18v-6l5 3-5 3zm7-15H7v1h10V3zm3 3H4v1h16V6zm2 3H2v12h20V9zM3 10h18v10H3V10z"></path></svg>
             {toogle ? (
               <div className="text-md max-[500px]:text-sm ml-3 pr-12 ">Subscription</div>
             ) : null}
@@ -58,7 +65,7 @@ const Sidebar = () => {
 
             </div>
             <div className="flex p-3  max-[500px]:shrink-0 hover:bg-[#f0f0f0] justify-start rounded-md">
-              <svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="m10 8 6 4-6 4V8zm11-5v18H3V3h18zm-1 1H4v16h16V4z"></path></svg>
+              <svg enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="m10 8 6 4-6 4V8zm11-5v18H3V3h18zm-1 1H4v16h16V4z"></path></svg>
 
               <div className="text-md max-[500px]:text-sm ml-3 pr-12 ">Your videos</div>
 
@@ -69,7 +76,7 @@ const Sidebar = () => {
 
             </div>
             <div className="flex p-3  max-[500px]:shrink-0 hover:bg-[#f0f0f0] justify-start rounded-md">
-              <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="M18.77,11h-4.23l1.52-4.94C16.38,5.03,15.54,4,14.38,4c-0.58,0-1.14,0.24-1.52,0.65L7,11H3v10h4h1h9.43 c1.06,0,1.98-0.67,2.19-1.61l1.34-6C21.23,12.15,20.18,11,18.77,11z M7,20H4v-8h3V20z M19.98,13.17l-1.34,6 C18.54,19.65,18.03,20,17.43,20H8v-8.61l5.6-6.06C13.79,5.12,14.08,5,14.38,5c0.26,0,0.5,0.11,0.63,0.3 c0.07,0.1,0.15,0.26,0.09,0.47l-1.52,4.94L13.18,12h1.35h4.23c0.41,0,0.8,0.17,1.03,0.46C19.92,12.61,20.05,12.86,19.98,13.17z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="M18.77,11h-4.23l1.52-4.94C16.38,5.03,15.54,4,14.38,4c-0.58,0-1.14,0.24-1.52,0.65L7,11H3v10h4h1h9.43 c1.06,0,1.98-0.67,2.19-1.61l1.34-6C21.23,12.15,20.18,11,18.77,11z M7,20H4v-8h3V20z M19.98,13.17l-1.34,6 C18.54,19.65,18.03,20,17.43,20H8v-8.61l5.6-6.06C13.79,5.12,14.08,5,14.38,5c0.26,0,0.5,0.11,0.63,0.3 c0.07,0.1,0.15,0.26,0.09,0.47l-1.52,4.94L13.18,12h1.35h4.23c0.41,0,0.8,0.17,1.03,0.46C19.92,12.61,20.05,12.86,19.98,13.17z"></path></svg>
               <div className="text-md max-[500px]:text-sm ml-3 pr-12 ">Liked videos</div>
 
             </div>
@@ -85,7 +92,7 @@ const Sidebar = () => {
 
             </div>
             <div className="flex p-3  max-[500px]:shrink-0 hover:bg-[#f0f0f0] justify-start rounded-md">
-              <svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="M10 18v-6l5 3-5 3zm7-15H7v1h10V3zm3 3H4v1h16V6zm2 3H2v12h20V9zM3 10h18v10H3V10z"></path></svg>
+              <svg enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="M10 18v-6l5 3-5 3zm7-15H7v1h10V3zm3 3H4v1h16V6zm2 3H2v12h20V9zM3 10h18v10H3V10z"></path></svg>
 
               <div className="text-md max-[500px]:text-sm ml-3 pr-12 ">Subscription</div>
 
@@ -112,7 +119,7 @@ const Sidebar = () => {
 
             </div>
             <div className="flex p-3  max-[500px]:shrink-0 hover:bg-[#f0f0f0] justify-start rounded-md">
-              <svg enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="m10 8 6 4-6 4V8zm11-5v18H3V3h18zm-1 1H4v16h16V4z"></path></svg>
+              <svg enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="m10 8 6 4-6 4V8zm11-5v18H3V3h18zm-1 1H4v16h16V4z"></path></svg>
 
               <div className="text-md max-[500px]:text-sm ml-3 pr-12 ">Your videos</div>
 
@@ -124,7 +131,7 @@ const Sidebar = () => {
 
             </div>
             <div className="flex p-3  max-[500px]:shrink-0 hover:bg-[#f0f0f0] justify-start rounded-md">
-              <svg xmlns="http://www.w3.org/2000/svg" enable-background="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="M18.77,11h-4.23l1.52-4.94C16.38,5.03,15.54,4,14.38,4c-0.58,0-1.14,0.24-1.52,0.65L7,11H3v10h4h1h9.43 c1.06,0,1.98-0.67,2.19-1.61l1.34-6C21.23,12.15,20.18,11,18.77,11z M7,20H4v-8h3V20z M19.98,13.17l-1.34,6 C18.54,19.65,18.03,20,17.43,20H8v-8.61l5.6-6.06C13.79,5.12,14.08,5,14.38,5c0.26,0,0.5,0.11,0.63,0.3 c0.07,0.1,0.15,0.26,0.09,0.47l-1.52,4.94L13.18,12h1.35h4.23c0.41,0,0.8,0.17,1.03,0.46C19.92,12.61,20.05,12.86,19.98,13.17z"></path></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 24 24" height="24" viewBox="0 0 24 24" width="24" focusable="false" className=" size-[23.99px] max-[500px]:size-4 pointer-events-none " aria-hidden="true"><path d="M18.77,11h-4.23l1.52-4.94C16.38,5.03,15.54,4,14.38,4c-0.58,0-1.14,0.24-1.52,0.65L7,11H3v10h4h1h9.43 c1.06,0,1.98-0.67,2.19-1.61l1.34-6C21.23,12.15,20.18,11,18.77,11z M7,20H4v-8h3V20z M19.98,13.17l-1.34,6 C18.54,19.65,18.03,20,17.43,20H8v-8.61l5.6-6.06C13.79,5.12,14.08,5,14.38,5c0.26,0,0.5,0.11,0.63,0.3 c0.07,0.1,0.15,0.26,0.09,0.47l-1.52,4.94L13.18,12h1.35h4.23c0.41,0,0.8,0.17,1.03,0.46C19.92,12.61,20.05,12.86,19.98,13.17z"></path></svg>
 
               <div className="text-md max-[500px]:text-sm ml-3 pr-12 ">Liked videos</div>
 

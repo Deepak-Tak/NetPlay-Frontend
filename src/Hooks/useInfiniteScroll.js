@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
 import { useFetchVideoListQuery } from "../store/bodySlice";
 
-const useInfiniteScroll = ({ scrollref }) => {
+const useInfiniteScroll = (scrollref) => {
   const [number, setNumber] = useState(9);
   const { data } = useFetchVideoListQuery(48);
-  const handleScroll = (e) =>
-    scrollref.current.scrollHeight - scrollref.current.scrollTop <
-      scrollref.current.clientHeight + 40
+
+  const handleScroll = (e) => {
+    return (e.target.scrollHeight - e.target.scrollTop) < e.target.clientHeight + 20
       ? setNumber((state) => state + 9)
       : null;
 
+  }
+
+
   useEffect(() => {
     if (scrollref) {
-      scrollref.current.addEventListener("scroll", handleScroll);
+      const element = scrollref.current
+      element.addEventListener("scroll", handleScroll);
 
-      return () => scrollref.current.removeEventListener("scroll", handleScroll);
+      return () => element.removeEventListener("scroll", handleScroll);
     }
 
   }, []);
