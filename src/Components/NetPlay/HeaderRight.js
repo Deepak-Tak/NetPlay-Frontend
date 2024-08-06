@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Profile from "../../profile/Profile";
+import { FaUserCircle } from "react-icons/fa";
 
 const HeaderRight = () => {
   const [displayProfile, setDisplayProfile] = useState(false);
@@ -10,7 +11,7 @@ const HeaderRight = () => {
 
   return (
     <div className="relative flex flex-shrink-0">
-      <div className="mr-4">
+      <div className="mr-2">
         <label className="inline-flex items-center align-middle cursor-pointer">
           <input
             type="checkbox"
@@ -29,14 +30,12 @@ const HeaderRight = () => {
         </label>
       </div>
       <div onClick={(e) => e.stopPropagation()}>
-        <img
-          alt="userlogo"
-          src="/userlogo.png"
-          className="w-8"
+        <FaUserCircle className="size-8"
           onClick={(e) => {
             setDisplayProfile(!displayProfile);
-          }}
-        ></img>
+          }} />
+
+
         {displayProfile ? (
           <Profile handleOutsideClick={setDisplayProfile} />
         ) : null}

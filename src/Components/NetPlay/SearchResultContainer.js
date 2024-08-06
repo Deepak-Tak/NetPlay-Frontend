@@ -9,7 +9,7 @@ const SearchResultContainer = () => {
   );
   if (!data) return <div>Loading</div>;
   return (
-    <div className="top-[68px] relative flex flex-wrap justify-around">
+    <div className=" pt-4 box-border h-screen overflow-y-scroll border-t-[64px] min-w-0 grow ml-4">
       {data.items.map((item) => (
         <SearchResult key={item.id.videoId} data={item} />
       ))}
