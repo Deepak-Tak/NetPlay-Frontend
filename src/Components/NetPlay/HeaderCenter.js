@@ -4,11 +4,14 @@ import { AUTOSUGGESION_API } from "../../utils/constants";
 import { cacheResults } from "../../store/searchSlice";
 import SearchSuggestion from "./SearchSuggestion";
 import { Link } from "react-router-dom";
+import Mic from "./Mic";
+import { CiSearch } from "react-icons/ci";
 
 const HeaderCenter = () => {
   const [displaySearchBox, setDisplaySearchBox] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [autosuggesion, setAutosuggesion] = useState([]);
+
   const dispatch = useDispatch();
 
   const cacheData = useSelector((store) => store.search);
@@ -34,7 +37,7 @@ const HeaderCenter = () => {
     <div className=" min-w-0  flex-shrink relative  mx-1">
       <div className=" flex min-w-0">
         <input
-          className="border-[#c6c6c6] min-w-0 shrink p-3 h-7 border-r-0 border-[1.3px] rounded-l-3xl"
+          className="border-[#c6c6c6] min-w-0 shrink p-3 h-10 border-r-0 border-[1.3px] rounded-l-3xl"
           type="text"
           value={searchQuery}
           placeholder="Search..."
@@ -48,10 +51,11 @@ const HeaderCenter = () => {
           className="flex min-w-8"
           to={"/results?search_query=" + searchQuery}
         >
-          <button className="border-[#c6c6c6] bg-slate-200 min-w-0 w-16 h-7 border-l-0 border-[1.3px] rounded-r-3xl">
-            🔍
+          <button className="border-[#c6c6c6] bg-slate-200 hover:bg-slate-300 min-w-0 w-16 h-10 border-l-0 border-[1.3px] rounded-r-3xl">
+            <CiSearch className="w-14 h-6" />
           </button>
         </Link>
+        <Mic setSearchQuery={setSearchQuery} />
       </div>
       {displaySearchBox && autosuggesion.length > 0 && (
         <SearchSuggestion data={autosuggesion} />
