@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import { useFetchVideoListQuery } from "../store/bodySlice";
+import { useVideoFetch } from "./useVideoFetch";
 
-const useInfiniteScroll = (scrollref) => {
+const useInfiniteScroll = (scrollref, activeCategory) => {
   const [number, setNumber] = useState(9);
-  const { data } = useFetchVideoListQuery(48);
+  const { data, isLoading, isFetching } = useVideoFetch(activeCategory)
+
+
 
   const handleScroll = (e) => {
     return (e.target.scrollHeight - e.target.scrollTop) < e.target.clientHeight + 20
@@ -22,7 +24,7 @@ const useInfiniteScroll = (scrollref) => {
     }
 
   }, []);
-  return { number, data };
+  return { number, data, isLoading, isFetching };
 };
 
 export default useInfiniteScroll;

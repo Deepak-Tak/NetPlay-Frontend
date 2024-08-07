@@ -7,6 +7,7 @@ const Sidebar = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const toogle = useSelector((store) => store.sidebar[1]);
+  console.log(toogle)
   return (
     <div
       className={`flex  box-border pt-5 border-t-[64px] h-screen ml-1 align-middle
@@ -24,7 +25,6 @@ const Sidebar = () => {
 
         <div className="border-b-2 pb-2 ">
           <div onClick={() => {
-            console.log(window.screen.width)
             if (window.screen.width < 950)
               dispatch(setToogle())
             navigate("/")
