@@ -3,7 +3,7 @@ import { useVideoFetch } from "./useVideoFetch";
 
 const useInfiniteScroll = (scrollref, activeCategory) => {
   const [number, setNumber] = useState(9);
-  const { data, isLoading, isFetching } = useVideoFetch(activeCategory)
+  const { data, isLoading, isFetching, isError } = useVideoFetch(activeCategory)
 
 
 
@@ -23,8 +23,8 @@ const useInfiniteScroll = (scrollref, activeCategory) => {
       return () => element.removeEventListener("scroll", handleScroll);
     }
 
-  }, []);
-  return { number, data, isLoading, isFetching };
+  }, [scrollref]);
+  return { number, data, isLoading, isFetching, isError };
 };
 
 export default useInfiniteScroll;

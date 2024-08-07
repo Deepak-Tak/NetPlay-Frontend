@@ -7,7 +7,6 @@ import { IoMdClose } from "react-icons/io";
 const MicPage = ({ setSearchQuery, setActive }) => {
     const [speech, setSpeech] = useState("Listening...")
     const [listening, setLisetening] = useState(1)
-    const beepSound = beep({ frequency: 830 });
     const [timer, setTimer] = useState(null)
     function handleClick() {
         if (listening) {
@@ -21,6 +20,7 @@ const MicPage = ({ setSearchQuery, setActive }) => {
 
     }
     useEffect(() => {
+        const beepSound = beep({ frequency: 830 });
         if (listening) {
             let transcript
 
@@ -62,7 +62,7 @@ const MicPage = ({ setSearchQuery, setActive }) => {
                 recognition.stop()
             };
         }
-    }, [listening])
+    }, [listening, setActive, setSearchQuery])
     useEffect(() => {
         clearTimeout(timer)
     }, [timer])

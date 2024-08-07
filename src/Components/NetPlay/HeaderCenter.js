@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { AUTOSUGGESION_API } from "../../utils/constants";
 import { cacheResults } from "../../store/searchSlice";
 import SearchSuggestion from "./SearchSuggestion";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Mic from "./Mic";
 import { CiSearch } from "react-icons/ci";
 

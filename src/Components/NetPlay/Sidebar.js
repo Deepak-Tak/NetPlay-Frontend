@@ -7,7 +7,6 @@ const Sidebar = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const toogle = useSelector((store) => store.sidebar[1]);
-  console.log(toogle)
   return (
     <div
       className={`flex  box-border pt-5 border-t-[64px] h-screen ml-1 align-middle

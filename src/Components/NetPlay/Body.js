@@ -6,7 +6,7 @@ import { useRef, useState } from "react";
 const Body = () => {
   const scrollref = useRef(null)
   const [activeCategory, setActiveCategory] = useState("All")
-  const { data, number, isFetching, isLoading } = useInfiniteScroll(scrollref, activeCategory);
+  const { data, number, isFetching, isError } = useInfiniteScroll(scrollref, activeCategory);
   const x = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const categories = ["All", "Live", "News", "JavaScript", "ComputerProgramming", "Music", "MediaTheories", "Sports", "One Day International", "Dance", "UPSC", "India", "World", "Mathematics", "Physics", "RAS"]
   return (
@@ -15,7 +15,7 @@ const Body = () => {
       <div className="w-full flex justify-around sticky py-3 top-0 bg-white flex-nowrap overflow-x-scroll scrollbar-none">
         {categories.map((text) => <Categories key={text} text={text} activeCategory={{ activeCategory, setActiveCategory }} />)}
       </div>
-      {isFetching ? x.map((item, index) => <ShimmerPlaceholder key={index} />) : (data
+      {isFetching || isError ? x.map((item, index) => <ShimmerPlaceholder key={index} />) : (data
         ? data.items.map((item, index) =>
           index < number ? (
             <VideoCard key={activeCategory === "All" ? item.id : item.id.videoId} activeCategory={activeCategory} videoDetails={item} />
@@ -29,7 +29,7 @@ const Body = () => {
 export default Body;
 const ShimmerPlaceholder = () => {
   return (
-    <div className="p-4 hover:p-2 basis-[340px] min-w-0 flex-shrink cursor-pointer">
+    <div className="p-4 hover:p-2 basis-[340px]   min-w-0 flex-shrink cursor-pointer">
       <div className="w-full h-[180px] bg-slate-200 bg-cover bg-no-repeat animate-pulse rounded-xl"></div>
       <div className="p-2">
         <div className="w-3/4 h-5 bg-slate-200 bg-cover bg-no-repeat animate-pulse rounded-md mb-2"></div>
