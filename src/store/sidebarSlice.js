@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const sidebarSlice = createSlice({
   name: "sidebar",
-  initialState: [true, true],
+  initialState: [true, window.screen.width < 950 ? false : true],
   reducers: {
     setToogle: (state) => {
       if (state[0]) state[1] = !state[1];

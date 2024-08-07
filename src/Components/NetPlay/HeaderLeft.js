@@ -15,7 +15,8 @@ const HeaderLeft = () => {
       />
       <Link to={"/"}>
         <img
-          className="w-[90px] h-[20px]"
+
+          className="w-[90px] h-[20px] max-[500px]:w-[25px] max-[500px]:h-[20px] max-[500px]:object-cover max-[500px]:object-left  "
           alt="logo"
           src="/NETPLAY__1_-removebg-preview.png"
         />

@@ -12,13 +12,13 @@ import Theater from "./Theater/Theater";
 const App = () => {
   const sidebarDisplay = useSelector((store) => store.sidebar[0]);
   return (
-    <>
+    <div >
       <Header />
       <div className="flex">
         {sidebarDisplay ? <Sidebar /> : null}
         <Outlet />
       </div>
-    </>
+    </div>
   );
 };
 const AppRouter = createBrowserRouter([

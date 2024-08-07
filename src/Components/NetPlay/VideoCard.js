@@ -1,38 +1,12 @@
 import { Link } from "react-router-dom";
+import { convertViewCount, getDateDifference } from "../../utils/functions";
+import { useVideoFetch } from "../../Hooks/useVideoFetch";
 
-const VideoCard = ({ videoDetails }) => {
+const VideoCard = ({ videoDetails, activeCategory, isLoading }) => {
   const { title, channelTitle, thumbnails, publishedAt } = videoDetails.snippet;
-  function getDateDifference(dateString) {
-    const currentDate = new Date();
-    const givenDate = new Date(dateString);
 
-    const differenceMs = currentDate - givenDate;
+  if (isLoading) {
 
-    const differenceDays = Math.floor(differenceMs / (1000 * 60 * 60 * 24));
-    const differenceHours = Math.floor(differenceMs / (1000 * 60 * 60));
-    const differenceMinutes = Math.floor(differenceMs / (1000 * 60));
-
-    let result;
-    if (differenceDays > 0) {
-      result = differenceDays + " days ago";
-    } else if (differenceHours > 0) {
-      result = differenceHours + " hours ago";
-    } else {
-      result = differenceMinutes + " minutes ago";
-    }
-
-    return result;
-  }
-  function convertViewCount(viewCount) {
-    if (viewCount < 1000) {
-      return viewCount.toString();
-    } else if (viewCount < 1000000) {
-      return (viewCount / 1000).toFixed(1) + "K";
-    } else if (viewCount < 1000000000) {
-      return (viewCount / 1000000).toFixed(1) + "M";
-    } else {
-      return (viewCount / 1000000000).toFixed(1) + "B";
-    }
   }
   return (
     <div className="p-4 hover:p-2 basis-[340px]  min-w-0 flex-shrink cursor-pointer">
@@ -52,9 +26,9 @@ const VideoCard = ({ videoDetails }) => {
 
         <h6 className="text-sm ">{channelTitle}</h6>
         <div className="flex">
-          <h6 className="text-sm">
+          {videoDetails.statistics ? <h6 className="text-sm">
             {convertViewCount(videoDetails.statistics.viewCount)}
-          </h6>
+          </h6> : null}
           <h6 className="text-sm ml-2 ">{getDateDifference(publishedAt)}</h6>
         </div>
       </div>
@@ -62,3 +36,8 @@ const VideoCard = ({ videoDetails }) => {
   );
 };
 export default VideoCard;
+
+
+
+
+

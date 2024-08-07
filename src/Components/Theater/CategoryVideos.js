@@ -4,7 +4,7 @@ import { CDN_LINK } from "../../utils/constants";
 const CategoryVideos = ({ data }) => {
   if (!data) return null;
   return (
-    <div className="flex overflow-x-scroll no-scrollbar">
+    <div className="flex overflow-x-scroll scrollbar-none">
       {data.results.map((item) =>
         item.poster_path ? (
           <img

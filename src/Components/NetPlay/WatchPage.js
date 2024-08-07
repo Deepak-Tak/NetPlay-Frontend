@@ -18,7 +18,7 @@ const WatchPage = () => {
     }
   };
   return (
-    <div className="top-[68px] relative">
+    <div className=" pt-4 box-border h-screen overflow-y-scroll border-t-[64px] min-w-0 grow ml-4">
       <iframe
         width="560"
         height="315"
