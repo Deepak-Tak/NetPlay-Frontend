@@ -38,7 +38,7 @@ const HeaderCenter = () => {
     <div className="min-w-0 flex-shrink relative  mx-1">
       <div className="flex">
         <input
-          className="border-[#c6c6c6] min-w-0 shrink p-3 h-10 border-r-0 border-[1.3px] rounded-l-3xl"
+          className="border-[#c6c6c6] min-w-0 shrink p-3 h-10 border-y-[1.3px] border-l-[1.3px] rounded-l-3xl"
           type="text"
           value={searchQuery}
           placeholder="Search..."
