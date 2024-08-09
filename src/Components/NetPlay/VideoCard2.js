@@ -7,17 +7,17 @@ const VideoCard2 = ({ videoDetails }) => {
 
 
     return (
-        <div className=" flex  mt-3    min-w-0 flex-shrink cursor-pointer">
+        <div className=" flex  mt-4   min-w-0 flex-shrink cursor-pointer">
             <div className="mr-3" >
                 <Link to={"/watch?v=" + videoDetails.id}>
                     <img
                         alt="videoCard "
-                        className="rounded-xl h-[94.25px] w-[168px] object-fill "
+                        className="rounded-xl aspect-video w-[168px]   object-fill "
                         src={thumbnails.medium.url}
                     />
                 </Link>
             </div>
-            <div className="pr-2 w-1/2">
+            <div className="pr-2 w-1/2  flex flex-wrap">
                 <h4 className="text-sm break-words font-medium">
                     {title.substring(0, 87) + "..."}
                 </h4>

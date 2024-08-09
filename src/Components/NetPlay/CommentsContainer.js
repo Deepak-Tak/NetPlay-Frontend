@@ -15,7 +15,7 @@ const CommentsContainer = ({ commentsCount, id }) => {
           <p className="text-2xl pr-6 font-semibold">
             {commentsCount} Comments
           </p>
-          <div className="flex mr-2">
+          <div className="flex  mr-2">
             <MdOutlineSort className="size-6 mr-3" />
             <p>Sort by</p>
 
@@ -27,7 +27,7 @@ const CommentsContainer = ({ commentsCount, id }) => {
         </div>
       </div>
       <div>
-        {data.items.map((item) => <Comment key={item.id} data={item} />)}
+        {data?.items?.map((item) => <Comment key={item.id} data={item} />)}
       </div>
     </div>
   );

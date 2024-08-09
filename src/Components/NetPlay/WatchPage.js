@@ -21,7 +21,7 @@ const WatchPage = () => {
     return () => window.removeEventListener('resize', () => { })
   })
   return (
-    <div className=" pt-4 box-border h-screen overflow-y-scroll border-t-[64px] min-w-0 grow ml-4 flex">
+    <div className=" pt-4 box-border h-screen overflow-y-scroll border-t-[64px] min-w-0 grow mx-4 flex">
       <LeftSidePanel data2={data} switchRightPanel={switchRightPanel} />
 
       {switchRightPanel ? null : <RightSidePanel data2={data} switchRightPanel={switchRightPanel} />}

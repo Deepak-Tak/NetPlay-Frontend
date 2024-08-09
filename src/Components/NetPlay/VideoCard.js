@@ -3,12 +3,12 @@ import { convertViewCount, getDateDifference } from "../../utils/functions";
 
 const VideoCard = ({ videoDetails }) => {
   const { title, channelTitle, thumbnails, publishedAt } = videoDetails.snippet;
-
+  const searchQuery = videoDetails.id.videoId ? videoDetails.id.videoId : videoDetails.id
 
   return (
     <div className="p-4 hover:p-2 basis-[340px] w-[340px] h-[321.25px]  min-w-0 flex-shrink cursor-pointer">
       <div>
-        <Link to={"/watch?v=" + videoDetails.id}>
+        <Link to={"/watch?v=" + searchQuery}>
           <img
             alt="videoCard"
             className="rounded-xl"
