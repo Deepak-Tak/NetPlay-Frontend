@@ -20,7 +20,7 @@ const Body = () => {
         {isFetching || isError ? x.map((item, index) => <ShimmerPlaceholder key={index} />) : (data
           ? data.items.map((item, index) =>
             index < number ? (
-              <VideoCard key={activeCategory === "All" ? item.id : item.id.videoId} activeCategory={activeCategory} videoDetails={item} />
+              <VideoCard key={activeCategory === "All" ? item.id : item.id.videoId} videoDetails={item} />
             ) : null
           )
           : null)}
@@ -31,7 +31,7 @@ const Body = () => {
 };
 
 export default Body;
-const ShimmerPlaceholder = () => {
+export const ShimmerPlaceholder = () => {
   return (
     <div className="p-4 hover:p-2 basis-[340px] w-[340px] h-[321.25px] flex-shrink-0 cursor-pointer">
       <div className="w-full h-[180px] bg-slate-200 animate-pulse rounded-xl"></div>

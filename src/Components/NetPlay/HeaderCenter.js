@@ -29,10 +29,16 @@ const HeaderCenter = () => {
   }, [searchQuery]);
 
   const fetchSearchSuggestions = async () => {
-    const data = await fetch(AUTOSUGGESION_API + searchQuery);
-    const json = await data.json();
-    dispatch(cacheResults({ [searchQuery]: json[1] }));
-    setAutosuggesion(json[1]);
+    try {
+      const data = await fetch(AUTOSUGGESION_API + searchQuery);
+      const json = await data.json();
+      dispatch(cacheResults({ [searchQuery]: json[1] }));
+      setAutosuggesion(json[1]);
+    }
+    catch (e) {
+      console.log(e)
+    }
+
   };
   return (
     <div className="min-w-0 flex-shrink relative  mx-1">

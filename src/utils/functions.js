@@ -42,3 +42,18 @@ export function convertViewCount(viewCount) {
     return (viewCount / 1000000000).toFixed(1) + "B";
   }
 }
+
+
+export function convertDate(isoDate) {
+  const date = new Date(isoDate);
+
+  // Array of month names
+  const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+  const day = date.getUTCDate();
+  const month = monthNames[date.getUTCMonth()];
+  const year = date.getUTCFullYear();
+
+  return `${month} ${day}, ${year}`;
+}

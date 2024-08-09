@@ -15,8 +15,21 @@ export const videoListApi = createApi({
       query: (keyword) =>
         `search?part=snippet&maxResults=48&type=video&key=${KEY}&q=${keyword}`,
     }),
+    fetchVideoDetails: builder.query({
+      query: (id) =>
+        `videos?part=snippet%2CcontentDetails%2Cstatistics&key=${KEY}&id=${id}`,
+    }),
+    fetchComments: builder.query({
+      query: (id) =>
+        `commentThreads?part=snippet%2Creplies&videoId=${id}&maxResults=50&key=${KEY}`
+    }),
+    fetchChannelDetails: builder.query({
+      query: (id) =>
+        `channels?part=snippet%2CcontentDetails%2Cstatistics&id=${id}&key=${KEY}`
+    })
+
   }),
 });
 
-export const { useFetchVideoListQuery, useFetchSearchVideoListQuery } =
+export const { useFetchChannelDetailsQuery, useFetchCommentsQuery, useFetchVideoListQuery, useFetchSearchVideoListQuery, useFetchVideoDetailsQuery } =
   videoListApi;
