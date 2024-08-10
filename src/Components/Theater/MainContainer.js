@@ -4,10 +4,10 @@ import Background from "./Background";
 
 const MainContainer = () => {
   return (
-    <div>
+    <>
       <Background />
       <VideoDescription />
-    </div>
+    </>
   );
 };
 

@@ -6,37 +6,37 @@ import {
   useFetchTopRatedQuery,
   useFetchUpComingQuery,
 } from "../../services/categoryVideosApi";
-import Shimmer from "./Shimmer";
 
 const SecondContainer = () => {
   const nowPlaying = useFetchNowPlayingQuery();
   const popular = useFetchPopularQuery();
   const topRated = useFetchTopRatedQuery();
   const upComing = useFetchUpComingQuery();
-  if (nowPlaying.isLoading) return <Shimmer />;
+  const isFetching = nowPlaying.isFetching || popular.isFetching || topRated.isFetching || upComing.isFetching
+  const isError = nowPlaying.isError || popular.isError || topRated.isError || upComing.isError
   return (
-    <div className="flex flex-col bg-black relative top-[100vh]">
+    <div className="flex flex-col relative bg-black pb-10  top-[100vh]">
       <div className="-mt-36">
         <h1 className="pl-4 text-2xl font-semibold py-3 text-white">
           Now Playing
         </h1>
-        <CategoryVideos data={nowPlaying.data} />
+        <CategoryVideos data={(!isFetching && (!isError)) ? nowPlaying.data : "error"} />
       </div>
       <div>
         <h1 className="pl-4 text-2xl font-semibold py-3 text-white">Popular</h1>
-        <CategoryVideos data={popular.data} />
+        <CategoryVideos data={(!isFetching && (!isError)) ? popular.data : "error"} />
       </div>
       <div>
         <h1 className="pl-4 text-2xl font-semibold py-3 text-white">
           Top Rated
         </h1>
-        <CategoryVideos data={topRated.data} />
+        <CategoryVideos data={(!isFetching && (!isError)) ? topRated.data : "error"} />
       </div>
       <div>
         <h1 className="pl-4 text-2xl font-semibold py-3 text-white">
           Up Coming
         </h1>
-        <CategoryVideos data={upComing.data} />
+        <CategoryVideos data={(!isFetching && (!isError)) ? upComing.data : "error"} />
       </div>
     </div>
   );

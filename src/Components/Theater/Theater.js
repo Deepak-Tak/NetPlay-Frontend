@@ -18,7 +18,7 @@ const Theater = () => {
   }, []);
   if (Id === "1") return <GptSearch />;
   return (
-    <div>
+    <div className="bg-black min-w-0">
       <MainContainer />
       <SecondContainer />
     </div>

@@ -9,6 +9,7 @@ const HeaderRight = () => {
   const navigate = useNavigate();
   const theaterMode = useSelector((store) => store.sidebar[0]);
 
+
   return (
     <div className="relative flex flex-shrink-0">
       <div className="mr-2">
@@ -30,10 +31,11 @@ const HeaderRight = () => {
         </label>
       </div>
       <div onClick={(e) => e.stopPropagation()}>
-        <FaUserCircle className="size-8"
+
+        {<FaUserCircle className="size-8 rounded-full"
           onClick={(e) => {
             setDisplayProfile(!displayProfile);
-          }} />
+          }} />}
 
 
         {displayProfile ? (

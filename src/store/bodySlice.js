@@ -13,7 +13,7 @@ export const videoListApi = createApi({
     }),
     fetchSearchVideoList: builder.query({
       query: (keyword) =>
-        `search?part=snippet&maxResults=48&type=video&key=${KEY}&q=${keyword}`,
+        `search?part=snippet&maxResults=18&type=video&key=${KEY}&q=${keyword}`,
     }),
     fetchVideoDetails: builder.query({
       query: (id) =>
