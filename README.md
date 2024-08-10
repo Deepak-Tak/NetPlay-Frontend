@@ -1,4 +1,19 @@
 # Getting Started with Create React App
+## Main Page
+![1](https://github.com/user-attachments/assets/73a0f17c-eec8-4e0d-8544-f81a97719d52)
+## Speech to Text
+![2](https://github.com/user-attachments/assets/43ddfa97-4546-4ae1-9379-36502a722f82)
+
+## Watch Page
+![3](https://github.com/user-attachments/assets/f5703354-e9c0-463b-89fb-bd0cc26f0668)
+
+## Theater Mode
+![4](https://github.com/user-attachments/assets/6024e865-4d2e-4a11-a4dd-b152d7ad1db6)
+
+## GPT Search
+![5](https://github.com/user-attachments/assets/bca1328e-c6dc-4eb1-8465-d727800fa877)
+
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
